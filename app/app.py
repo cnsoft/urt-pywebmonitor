@@ -23,4 +23,4 @@ def getconfig():
 
 
 #run(host='0.0.0.0', port=8080, debug = True)
-run(host='localhost', port=8080, server='gunicorn', workers=4)
+run(host='localhost', port=5000, server='gunicorn', workers=4)
