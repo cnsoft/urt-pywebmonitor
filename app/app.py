@@ -1,12 +1,13 @@
-from bottle import get, post, run, request, response, template, static_file
 import os, sys
 pwd = os.path.dirname(__file__)
 
 print pwd
 print __file__
-
+print os.listdir(pwd)
 sys.path.append(pwd)
+sys.path.append(pwd + "/app/")
 
+from bottle import get, post, run, request, response, template, static_file, default_app
 from urtserver import get_server_info
 
 @get('/')
@@ -31,4 +32,5 @@ def getconfig():
 
 
 #run(host='0.0.0.0', port=8080, debug = True)
-run(host='localhost', port=5000, server='gunicorn', workers=4)
+#run(host='localhost', port=5000, server='gunicorn', workers=4)
+application = app = default_app()
