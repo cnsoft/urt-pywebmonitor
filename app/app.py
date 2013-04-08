@@ -1,18 +1,22 @@
 from bottle import get, post, run, request, response, template, static_file
+import os, sys
+pwd = os.path.dirname(__file__)
+sys.path.append(pwd)
+
 from urtserver import get_server_info
 
 @get('/')
 def index():
-    return static_file('index.html',root='./views/')
+    return static_file('index.html',root= pwd + '/views/')
 
 @get('/static/<filepath:path>')
 def server_static(filepath):
-    return static_file(filepath, root='./static/')
+    return static_file(filepath, root= pwd + '/static/')
 
 @get('/getconfig')
 def getconfig():
 	response.set_header('Content-Type' , 'application/javascript')
-	return 'configured_server_list = %s' % open('config.json').read()
+	return 'configured_server_list = %s' % open( pwd + '/config.json').read()
 
 @post('/getstatus')
 def getconfig():
