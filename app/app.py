@@ -1,6 +1,10 @@
 from bottle import get, post, run, request, response, template, static_file
 import os, sys
 pwd = os.path.dirname(__file__)
+
+print pwd
+print __file__
+
 sys.path.append(pwd)
 
 from urtserver import get_server_info
