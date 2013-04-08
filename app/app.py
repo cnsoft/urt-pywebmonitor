@@ -22,5 +22,5 @@ def getconfig():
 	return get_server_info(urt_id, urt_host, urt_port)
 
 
-run(host='0.0.0.0', port=8080, debug = True)
-#run(host='0.0.0.0', port=8080, server='gunicorn', workers=4)
+#run(host='0.0.0.0', port=8080, debug = True)
+run(host='localhost', port=8080, server='gunicorn', workers=4)
